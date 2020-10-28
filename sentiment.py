@@ -8,11 +8,12 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from textblob import TextBlob
 
 
-def merge_files(path):
+def merge_files():
     """ Function that merges files located in the path variable. * Note, the files must be in the form that we had in
     the previous assignment: a csv file with 2 columns of name and purpose"""
-    os.chdir(path)  # Assigns the working directory based on path input
     num_files = int(input("How many files do you want to merge? "))  # Asks users for # of files wanted to merge
+    path = input("What is the filepath to where the files are located? ")
+    os.chdir(path)  # Assigns the working directory based on path input
     print("Please enter the full name of each file (including '.csv')")
     files = []
     for i in range(0, num_files):  # Asks user for the file names, and adds names to a list
@@ -57,7 +58,7 @@ def most_common(data):
 
 
 if __name__ == "__main__":
-    df = merge_files("/Users/lucasfan/Documents/FE-595/PycharmProjects/HW3/Results")
+    df = merge_files()
     best_worst(df)
     most_common(df)
 
